@@ -10,14 +10,15 @@ import java.util.List;
 
 import com.newlecture.javaWeb.dao.NoticeDao;
 import com.newlecture.javaWeb.entity.Notice;
+import com.newlecture.javaWeb.entity.NoticeView;
 
 public class JdbcNoticeDao implements NoticeDao {
 				//매개변수가 있으면 필수변수가 앞으로
-	public List<Notice> getList(int page,String query) {
+	public List<NoticeView> getList(int page,String query) {
 		
-		List<Notice> list = null;
+		List<NoticeView> list = null;
 		
-		String sql = "SELECT * FROM Notice where title like ? order by regDate DESC  limit ?,10";
+		String sql = "SELECT * FROM NoticeView where title like ? order by regDate DESC  limit ?,10";
 	
 		
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
@@ -35,9 +36,7 @@ public class JdbcNoticeDao implements NoticeDao {
 			    PreparedStatement st = con.prepareStatement(sql);
 			    st.setString(1, "%" + query + "%");
 			    st.setInt(2, offset);
-			    
-			    
-			  
+
 			    // 결과 가져오기
 			    ResultSet rs = st.executeQuery();
 			    
@@ -46,10 +45,14 @@ public class JdbcNoticeDao implements NoticeDao {
 			      
 			    // 결과 사용하기
 			    while (rs.next()) {
-			       Notice n = new Notice();
-			       n.setId(rs.getString("ID"));
-			       n.setTitle(rs.getString("TITLE"));
-			       //..
+			       NoticeView n = new NoticeView();
+			       n.setId(rs.getString("id"));
+			       n.setTitle(rs.getString("title"));
+			       n.setWriterId(rs.getString("writerId"));
+			       n.setWriterName(rs.getString("writerName"));
+			       n.setContent(rs.getString("content"));
+			       n.setHit(rs.getInt("hit"));
+			       n.setCountCmt(rs.getInt("countCmt"));
 			         
 			       list.add(n);
 			    }
@@ -71,7 +74,7 @@ public class JdbcNoticeDao implements NoticeDao {
 		
 		int count = 0;
 		
-		String sqlCount = "SELECT COUNT(id) count FROM Notice";
+		String sqlCount = "SELECT count(id) count FROM Notice";
 		
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		
@@ -83,19 +86,15 @@ public class JdbcNoticeDao implements NoticeDao {
 			    Connection con = DriverManager.getConnection(url, "sist", "cclass");
 		
 			    // 실행
-
-			    
-			    
 			    PreparedStatement st = con.prepareStatement(sqlCount);
 			    ResultSet rs = st.executeQuery();
+			    rs.next();
 			    count = rs.getInt("count");
-			    
-			    
-			    // Model => 출력된 데이터 
 
-			      rs.close();	
-			      st.close();
-			      con.close();
+			    // Model => 출력된 데이터 
+			    rs.close();	
+			    st.close();
+			    con.close();
 						
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -109,9 +108,9 @@ public class JdbcNoticeDao implements NoticeDao {
 
 	
 	@Override
-	public Notice get(String id) {
+	public NoticeView get(String id) {
 		
-		Notice n = null;
+		NoticeView n = null;
 		
 		String sql = "SELECT * FROM Notice where id=?";
 		
@@ -134,10 +133,9 @@ public class JdbcNoticeDao implements NoticeDao {
 			    
 			    // Model => 출력된 데이터 
 			    
-			      
 			    // 결과 사용하기
 			    if (rs.next()) {
-			       n = new Notice();
+			       n = new NoticeView();
 			       n.setId(rs.getString("ID"));
 			       n.setTitle(rs.getString("TITLE"));
 			       n.setWriterId(rs.getString("writerId"));
