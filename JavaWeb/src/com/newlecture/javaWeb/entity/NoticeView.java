@@ -6,7 +6,9 @@ public class NoticeView extends Notice{
 	private String writerName;
 	private int countCmt;
 	
-	public NoticeView() {}
+	public NoticeView() {
+		
+	}
 
 	public NoticeView(String id, String title, String content, String writerId, Date regDate, int hit) {
 		super(id, title, content, writerId, regDate, hit);

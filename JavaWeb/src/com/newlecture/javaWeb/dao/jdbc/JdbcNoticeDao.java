@@ -112,7 +112,7 @@ public class JdbcNoticeDao implements NoticeDao {
 		
 		NoticeView n = null;
 		
-		String sql = "SELECT * FROM Notice where id=?";
+		String sql = "SELECT * FROM NoticeView where id=?";
 		
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		
