@@ -7,7 +7,7 @@
 	/* var x;
 	alert(x == undefined); */
 	
-	var x = new Object();
+	/* var x = new Object();
 	x.name = new String("hello");
 	x.phone = new String("010-101-010");
 	alert(x.phone);
@@ -15,7 +15,23 @@
 	var x = {};
 	x.name = "hello";
 	x.phone = "010-101-010"
-	alert(x.phone);
+	alert(x.phone); */
+	
+	/* var json = [
+					{id:"1", title:"hello", "writer id":"newlec"},
+					{id:"2", title:"comeon", "writer id":"newlec"}
+				];
+	alert(json[1].title);
+	alert(json[1]["title"]);
+	alert(json[1]["writer id"]); */
+	/* var data = eval("var x=3; x++;"); */
+	//var data = eval("[2,4,6]");
+	//var data = JSON.parse("[2,4,6]");
+	
+	//var data = eval('({id:"1", title:"hello", "writer id":"newlec"})');
+	var data = JSON.parse('{"id":1, "title":"hello", "writer id":"newlec"}');
+	alert(typeof data.id);//typeof 는 해당속성에 자료형을 알려준다. ""로 감싸져있는것은 문자열,String
+							//암것도없는것은 정수형이므로 number
 </script>
 </head>
 <body>
