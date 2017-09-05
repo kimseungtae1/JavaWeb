@@ -1,9 +1,6 @@
 package com.newlecture.javaWeb.dao;
 
-
-
 import com.newlecture.javaWeb.entity.Member;
-
 
 public interface MemberDao {
 
