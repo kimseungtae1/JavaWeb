@@ -24,33 +24,33 @@ public class JdbcMemberDao implements MemberDao {
 		
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		
-		// JDBC µå¶óÀÌ¹ö ·Îµå
+		// JDBC ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Îµï¿½
 		try {
 				Class.forName("com.mysql.jdbc.Driver");
 		
-				// ¿¬°á / ÀÎÁõ
+				// ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½
 			    Connection con = DriverManager.getConnection(url, "sist", "cclass");
 		
-			    // ½ÇÇà
+			    // ï¿½ï¿½ï¿½ï¿½
 			    PreparedStatement st = con.prepareStatement(sql);
 
 			    st.setString(1, id);
 			    
-			    // °á°ú °¡Á®¿À±â
+			    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			    ResultSet rs = st.executeQuery();
 			    
-			    // Model => Ãâ·ÂµÈ µ¥ÀÌÅÍ 
+			    // Model => ï¿½ï¿½Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 			    
-			    // °á°ú »ç¿ëÇÏ±â
+			    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 			    if (rs.next()) {
 			       m = new Member();
-	    		   rs.getString("id"); 
-	    		   rs.getString("pwd"); 
-	    		   rs.getString("name"); 
-	    		   rs.getString("gender"); 
-	    		   rs.getString("birthday"); 
-	    		   rs.getString("phone"); 
-	    		   rs.getString("email");
+	    		   m.setId(rs.getString("id")); 
+	    		   m.setPwd(rs.getString("pwd")); 
+	    		   m.setName(rs.getString("name")); 
+	    		   m.setGender(rs.getString("gender")); 
+	    		   m.setBirthday(rs.getString("birthday")); 
+	    		   m.setPhone(rs.getString("phone")); 
+	    		   m.setEmail(rs.getString("email"));
 			    }
 			    
 			    rs.close();
@@ -81,14 +81,14 @@ public class JdbcMemberDao implements MemberDao {
 		
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		
-		// JDBC µå¶óÀÌ¹ö ·Îµå
+		// JDBC ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Îµï¿½
 		try {
 				Class.forName("com.mysql.jdbc.Driver");
 		
-				// ¿¬°á / ÀÎÁõ
+				// ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½
 			    Connection con = DriverManager.getConnection(url, "sist", "cclass");
 		
-			    // ½ÇÇà
+			    // ï¿½ï¿½ï¿½ï¿½
 			    PreparedStatement st = con.prepareStatement(sql);
 			    st.setString(1, member.getId());
 			    st.setString(2, member.getPwd());
@@ -98,7 +98,7 @@ public class JdbcMemberDao implements MemberDao {
 			    st.setString(6, member.getPhone());
 			    st.setString(7, member.getEmail());
 			    
-			    // °á°ú °¡Á®¿À±â 0º¸´Ù Å©¸é ¾÷µ¥ÀÌÆ®µÈ ·Î¿ì°ª ³ªÅ¸³ª¤±
+			    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î¿ì°ª ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½
 			    result = st.executeUpdate();
 			    			    
 			    st.close();

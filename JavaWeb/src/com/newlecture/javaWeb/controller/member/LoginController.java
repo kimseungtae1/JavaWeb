@@ -25,7 +25,7 @@ public class LoginController extends HttpServlet{
 		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		
+
 		MemberDao memberDao = new JdbcMemberDao();
 		
 		Member member = memberDao.get(id);
@@ -34,9 +34,15 @@ public class LoginController extends HttpServlet{
 			response.sendRedirect("login?error");
 		else if(!member.getPwd().equals(pwd))
 			response.sendRedirect("login?error");
-		else {
+		else { // ������ ����
+			//���� ������� "��������"�� �����ϴ� �����
+			//���� �����
+			request.getSession().setAttribute("id", id);
+			//��Ű �����
 			
+			//��� ������� "��������"�� �����ϴ� �����
+			//���ø����̼� �����
+			response.sendRedirect("../index");
 		}
-		response.sendRedirect("../index");
 	}
 }
