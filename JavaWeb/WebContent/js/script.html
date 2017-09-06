@@ -16,9 +16,26 @@
 	};
 	
 	alert(add(3,8,10)); */
-	
-	a = 1;
-	alert(a);
+	/* function f1(){
+		var a=1; //var를 붙이면 지역변수가 되버린다. var가 없으면 글로벌 변수가 된다.마치 전역변수 같은 느낌
+	}
+	function f2(){
+		alert(a);
+	}
+	f1();
+	f2();
+	 */
+	/* function f1(){  
+		var a = 1; //f2덕분에 지역변수가 끝까지 살아남는다.
+		
+		return function f2(){
+			return a;
+		}
+	}
+	var f = f1();
+	var a = f();
+	alert(a); */
+
 
 	/* var x = 3;
 	var y = new Number(3);
