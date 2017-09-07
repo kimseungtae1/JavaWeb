@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.newlecture.javaWeb.dao.MemberDao;
+import com.newlecture.javaWeb.dao.MemberRoleDao;
 import com.newlecture.javaWeb.dao.NoticeDao;
 import com.newlecture.javaWeb.entity.Member;
 import com.newlecture.javaWeb.entity.Notice;
 import com.newlecture.javaWeb.entity.NoticeView;
 
-public class JdbcMemberDao implements MemberDao {
+public class JdbcMemberDao implements MemberDao{
 
 	@Override
 	public Member get(String id) {
@@ -114,7 +115,4 @@ public class JdbcMemberDao implements MemberDao {
 		
 		return result;
 	}
-
-		
-	
 }

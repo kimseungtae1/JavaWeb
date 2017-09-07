@@ -34,14 +34,9 @@ public class LoginController extends HttpServlet{
 			response.sendRedirect("login?error");
 		else if(!member.getPwd().equals(pwd))
 			response.sendRedirect("login?error");
-		else { // ������ ����
-			//���� ������� "��������"�� �����ϴ� �����
-			//���� �����
+		else { 
 			request.getSession().setAttribute("id", id);
-			//��Ű �����
 			
-			//��� ������� "��������"�� �����ϴ� �����
-			//���ø����̼� �����
 			response.sendRedirect("../index");
 		}
 	}
