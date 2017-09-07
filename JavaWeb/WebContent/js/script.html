@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-
+	/* var x,y;
+	x = prompt("x값을 입력하세요", 0);
+	y = prompt("y값을 입력하세요", 0);
+	x = parseInt(x);
+	y = parseInt(y);
+	alert(x+y); */
 	//var add = new Function("x, y", "return x+y;");//자바스크립트는 함수도 객체다!
 	/* var add = function(){
 		
@@ -84,9 +89,18 @@
 	/* var data = JSON.parse('{"id":1, "title":"hello", "writer id":"newlec"}');
 	alert(typeof data.id); *///typeof 는 해당속성에 자료형을 알려준다. ""로 감싸져있는것은 문자열,String
 							//암것도없는것은 정수형이므로 number
+function printResult(){
+	var x,y;
+	x = prompt("x값을 입력하세요", 0);
+	y = prompt("y값을 입력하세요", 0);
+	x = parseInt(x);
+	y = parseInt(y);
+	btnPrint.value=x+y;
+}
 </script>
 </head>
 <body>
+	<input type="button" value="출력" onclick="printResult();" id="btnPrint"/>
 
 </body>
 </html>
