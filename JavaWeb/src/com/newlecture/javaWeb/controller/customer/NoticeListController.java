@@ -25,18 +25,18 @@ public class NoticeListController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String _title = request.getParameter("title");
 		String _page = request.getParameter("p"); 
-		//3°¡Áö°æ¿ì
+		//3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//notice?title = aa : title="aa"
 		//notice?title = 	: title=""
 		//notice			: title=null
 		
-		int page = 1;	//¹ÌÀü´ÞÀÌµÈ °æ¿ì ±âº»°ª
-		//1page¿¡¼­ ³Ñ°Ü ¹ÞÀº °æ¿ì get
-		if(_page != null && !_page.equals(""))//Àü´Þ ‰çÀ» ¶§
+		int page = 1;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½
+		//1pageï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ get
+		if(_page != null && !_page.equals(""))//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 			page = Integer.parseInt(_page);
 				
 		//int offset = (page-1)*10;
-		String title = "";//±âº»°ª
+		String title = "";//ï¿½âº»ï¿½ï¿½
 
 		
 		if(_title != null && !_title.equals(""))

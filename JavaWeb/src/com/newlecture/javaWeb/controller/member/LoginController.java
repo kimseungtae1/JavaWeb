@@ -37,7 +37,13 @@ public class LoginController extends HttpServlet{
 		else { 
 			request.getSession().setAttribute("id", id);
 			
-			response.sendRedirect("../index");
+			//다시돌아가게 하기 글쓰기(admin/reg) -> 로그인필요(login) -> 로그인 -> returnURL가지고 다시 admin/reg로
+			String returnURL = request.getParameter("returnURL");
+			
+			if(returnURL != null)
+				response.sendRedirect(returnURL);
+			else
+				response.sendRedirect("../index");
 		}
 	}
 }

@@ -23,7 +23,7 @@ public class HomeController extends HttpServlet{
 		Object _memberId = session.getAttribute("id");
 		//1.로그인 한 적이 없다면 일단 로그인하러 가자
 		if(_memberId==null) 
-			response.sendRedirect("login");
+			response.sendRedirect("login?returnURL=home");//되돌아 오기 위한 상대경로는 간 페이지를 기준으로 한다. login을 기준으로 home은 같은 디렉토리
 		else {
 			String memberId = _memberId.toString();
 			MemberRoleDao memberRoleDao = new JdbcMemberRoleDao();

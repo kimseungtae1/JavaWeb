@@ -23,20 +23,26 @@ import com.newlecture.javaWeb.entity.Notice;
 public class NoticeListController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//ì¸ì¦í•œ ì ì´ ìˆëŠ”ì§€ ì—†ë‹¤ë©´ ë¡œê·¸ì¸í•˜ê³ ì™€
+		//ëŒì•„ì™”ìœ¼ë©´ ì¸ì¦ì •ë³´ ì¤˜ë´.. ê·¸ê±¸ë¡œ ì—­í• ì´ ìˆëŠ”ì§€ ë³´ì
+		
+		//ì—†ë‹¤ë©´ ì—ëŸ¬ - ê¶Œí•œì—†ìŒ í˜ì´ì§€ë¡œ ê°„ë‹¤
+		
 		String _title = request.getParameter("title");
 		String _page = request.getParameter("p"); 
-		//3°¡Áö°æ¿ì
+		//3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//notice?title = aa : title="aa"
 		//notice?title = 	: title=""
 		//notice			: title=null
 		
-		int page = 1;	//¹ÌÀü´ŞÀÌµÈ °æ¿ì ±âº»°ª
-		//1page¿¡¼­ ³Ñ°Ü ¹ŞÀº °æ¿ì get
-		if(_page != null && !_page.equals(""))//Àü´Ş ‰çÀ» ¶§
+		int page = 1;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½
+		//1pageï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ get
+		if(_page != null && !_page.equals(""))//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 			page = Integer.parseInt(_page);
 				
 		//int offset = (page-1)*10;
-		String title = "";//±âº»°ª
+		String title = "";//ï¿½âº»ï¿½ï¿½
 
 		
 		if(_title != null && !_title.equals(""))
