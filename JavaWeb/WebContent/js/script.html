@@ -4,103 +4,157 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	/* var x,y;
-	x = prompt("x값을 입력하세요", 0);
-	y = prompt("y값을 입력하세요", 0);
-	x = parseInt(x);
-	y = parseInt(y);
-	alert(x+y); */
-	//var add = new Function("x, y", "return x+y;");//자바스크립트는 함수도 객체다!
-	/* var add = function(){
-		
-		var sum = 0;
-		for(var i=0; i<arguments.length; i++)
-			sum+=arguments[i];
-			
-		return sum;
-	};
-	
-	alert(add(3,8,10)); */
-	/* function f1(){
-		var a=1; //var를 붙이면 지역변수가 되버린다. var가 없으면 글로벌 변수가 된다.마치 전역변수 같은 느낌
-	}
-	function f2(){
-		alert(a);
-	}
-	f1();
-	f2();
-	 */
-	/* function f1(){  
-		var a = 1; //f2덕분에 지역변수가 끝까지 살아남는다.
-		
-		return function f2(){
-			return a;
-		}
-	}
-	var f = f1();
-	var a = f();
-	alert(a); */
+   /* var x,y;
+   x = prompt("x값을 입력하세요", 0);
+   y = prompt("y값을 입력하세요", 0);
+   x = parseInt(x);
+   y = parseInt(y);
+   alert(x+y); */
+   //var add = new Function("x, y", "return x+y;");//자바스크립트는 함수도 객체다!
+   /* var add = function(){
+      
+      var sum = 0;
+      for(var i=0; i<arguments.length; i++)
+         sum+=arguments[i];
+         
+      return sum;
+   };
+   
+   alert(add(3,8,10)); */
+   /* function f1(){
+      var a=1; //var를 붙이면 지역변수가 되버린다. var가 없으면 글로벌 변수가 된다.마치 전역변수 같은 느낌
+   }
+   function f2(){
+      alert(a);
+   }
+   f1();
+   f2();
+    */
+   /* function f1(){  
+      var a = 1; //f2덕분에 지역변수가 끝까지 살아남는다.
+      
+      return function f2(){
+         return a;
+      }
+   }
+   var f = f1();
+   var a = f();
+   alert(a); */
 
 
-	/* var x = 3;
-	var y = new Number(3);
-	alert(x===y); // 주소와 값 모두를 비교하는 연산자
-	alert(x==y); */ // 값만 비교하는 연산자
-	
-	//alert(3+4.5);
-	//alert(3+"4");
-	//alert(3.5-"2");
-	
-	/* var data = [2,4,6,7,0];
-	var entity = {id:1, title:"hello", writerId:"neclec"}; */
-	/* for(var i=0; i<data.length; i++)
-		alert(data[i]); */
-	/* for(var i in data)
-		alert(data[i]); */
+   /* var x = 3;
+   var y = new Number(3);
+   alert(x===y); // 주소와 값 모두를 비교하는 연산자
+   alert(x==y); */ // 값만 비교하는 연산자
+   
+   //alert(3+4.5);
+   //alert(3+"4");
+   //alert(3.5-"2");
+   
+   /* var data = [2,4,6,7,0];
+   var entity = {id:1, title:"hello", writerId:"neclec"}; */
+   /* for(var i=0; i<data.length; i++)
+      alert(data[i]); */
+   /* for(var i in data)
+      alert(data[i]); */
+      
+   /* for(var k in entity)
+      alert(entity[k]); */
+      
+   /* var x;
+   alert(x == undefined); */
+   
+   /* var x = new Object();
+   x.name = new String("hello");
+   x.phone = new String("010-101-010");
+   alert(x.phone);
+   
+   var x = {};
+   x.name = "hello";
+   x.phone = "010-101-010"
+   alert(x.phone); */
+   
+   /* var json = [
+               {id:"1", title:"hello", "writer id":"newlec"},
+               {id:"2", title:"comeon", "writer id":"newlec"}
+            ];
+   alert(json[1].title);
+   alert(json[1]["title"]);
+   alert(json[1]["writer id"]); */
+   /* var data = eval("var x=3; x++;"); */
+   //var data = eval("[2,4,6]");
+   //var data = JSON.parse("[2,4,6]");
+   
+   //var data = eval('({id:"1", title:"hello", "writer id":"newlec"})');
+   /* var data = JSON.parse('{"id":1, "title":"hello", "writer id":"newlec"}');
+   alert(typeof data.id); *///typeof 는 해당속성에 자료형을 알려준다. ""로 감싸져있는것은 문자열,String
+                     //암것도없는것은 정수형이므로 number
+   
+   function calcApp(){
+      var xText = document.getElementById("x");
+      var yText = document.getElementById("y");
+      var addButton = document.getElementById("add-button");
+      var resultText = document.getElementById("result");
+      
+      addButton.onclick = addButtonClick;
+
+      function addButtonClick(){
+         var x;
+         var y;
+         x = parseInt(xText.value);
+         y = parseInt(yText.value);
+         resultText.value=x+y;
+      }
+   }
+   
+   window.onload = calcApp;
+   
+   window.onload = function() {
+	    var countLabel = document.getElementById("count-label");
+		var countButton = document.getElementById("count-button");
+		var timerId = null;
 		
-	/* for(var k in entity)
-		alert(entity[k]); */
+		var ex1 = document.getElementById("ex1");
+		ex1.style.marginTop = "0px"; //초기화를 꼭 해야된다. 아무값도 안들어있기때문에
 		
-	/* var x;
-	alert(x == undefined); */
-	
-	/* var x = new Object();
-	x.name = new String("hello");
-	x.phone = new String("010-101-010");
-	alert(x.phone);
-	
-	var x = {};
-	x.name = "hello";
-	x.phone = "010-101-010"
-	alert(x.phone); */
-	
-	/* var json = [
-					{id:"1", title:"hello", "writer id":"newlec"},
-					{id:"2", title:"comeon", "writer id":"newlec"}
-				];
-	alert(json[1].title);
-	alert(json[1]["title"]);
-	alert(json[1]["writer id"]); */
-	/* var data = eval("var x=3; x++;"); */
-	//var data = eval("[2,4,6]");
-	//var data = JSON.parse("[2,4,6]");
-	
-	//var data = eval('({id:"1", title:"hello", "writer id":"newlec"})');
-	/* var data = JSON.parse('{"id":1, "title":"hello", "writer id":"newlec"}');
-	alert(typeof data.id); *///typeof 는 해당속성에 자료형을 알려준다. ""로 감싸져있는것은 문자열,String
-							//암것도없는것은 정수형이므로 number
-function printResult(){
-	var x,y;
-	x = prompt("x값을 입력하세요", 0);
-	y = prompt("y값을 입력하세요", 0);
-	x = parseInt(x);
-	y = parseInt(y);
-	btnPrint.value=x+y;
+		countButton.onclick = function(){
+			if(timerId == null)
+				timerId = setInterval(function(){
+					var count = parseInt(countLabel.textContent);
+					var marginTop = parseInt(ex1.style.marginTop); //px값을 떼주기 위해 변환한다.
+					
+					//목표치에 도달했을경우
+					if(count<=0){
+						clearInterval(timerId);
+						timerId = null;
+					}
+					
+					if(marginTop >= 100){
+						clearInterval(timerId);
+						timerId = null;
+					}
+					
+					//countLabel.textContent = count - 1;
+					ex1.style.marginTop = (marginTop+1) + "px";
+					}, 30);
+		};	
 }
 </script>
 </head>
 <body>
-	<input type="button" value="출력" onclick="printResult();" id="btnPrint"/>
+	<p>
+	       남은시간 <span id="count-label">60</span>초
+	       <input id="count-button" type="button" value="카운트 시작" />
+   </p>
+   <hr />
+
+	<div id="ex1">
+	   <input type="text" id="x" placeholder="x값을 입력하세요" />
+	   <input type="text" id="y" placeholder="y값을 입력하세요" />
+	   =
+	   <input type="button" value="더하기" id="add-button"/>
+	   <input type="text" value="" id="result" />
+	</div>
 
 </body>
 </html>

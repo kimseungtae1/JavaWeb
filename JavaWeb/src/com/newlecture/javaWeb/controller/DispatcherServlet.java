@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/*")
+//@WebServlet("/*")
 public class DispatcherServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
-		System.out.println("hihihihiaisguasodfusdoifsajlfjwfoiweujlwefij");
+		//System.out.println("hihihihiaisguasodfusdoifsajlfjwfoiweujlwefij");
 	}
 }
