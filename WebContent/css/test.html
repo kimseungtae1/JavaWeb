@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   .box{
+      display: flex;
+      flex-direction:row;
+      /* height: 100px; */ 
+      align-items: stretch;
+   }
+   
+   .item{
+      height: 100px;
+      /* width: 200px;
+      min-width: 100px; */
+      flex-grow: 1; /* 모든아이템에 1배를 기준으로 한다. 전체를 감싸고 있는 박스가 stretch가 적용되있어야한다 */
+   }
+   
+   .item:nth-child(1){
+      background: red;
+      flex-grow: 2;
+   }
+   .item:nth-child(2){
+      background: green;
+      flex-grow: 3; 
+   }
+   .item:nth-child(3){
+      background: gold;
+   }
+   .item:nth-child(4){
+      background: blue;
+   }
+   
+</style>
+</head>
+<body>
+   <div class="box">
+      <a class="item">1</a>
+      <a class="item">2</a>
+      <a class="item">3</a>
+      <a class="item">4</a>
+   </div>
+</body>
+</html>
